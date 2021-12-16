@@ -1,0 +1,2 @@
+writing enums for the menu.
+started  on enums for main menu- coomplete

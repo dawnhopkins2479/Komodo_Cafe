@@ -1,0 +1,10 @@
+C:\Users\mycjb\source\repos\Komodo_Cafe\Cafe_UI\obj\Debug\MenuManager1.0.csproj.CoreCompileInputs.cache
+C:\Users\mycjb\source\repos\Komodo_Cafe\Cafe_UI\bin\Debug\Cafe_UI.exe.config
+C:\Users\mycjb\source\repos\Komodo_Cafe\Cafe_UI\bin\Debug\Cafe_UI.exe
+C:\Users\mycjb\source\repos\Komodo_Cafe\Cafe_UI\bin\Debug\Cafe_UI.pdb
+C:\Users\mycjb\source\repos\Komodo_Cafe\Cafe_UI\bin\Debug\Cafe_Repo.dll
+C:\Users\mycjb\source\repos\Komodo_Cafe\Cafe_UI\bin\Debug\Cafe_Repo.pdb
+C:\Users\mycjb\source\repos\Komodo_Cafe\Cafe_UI\obj\Debug\MenuManager1.0.csproj.AssemblyReference.cache
+C:\Users\mycjb\source\repos\Komodo_Cafe\Cafe_UI\obj\Debug\MenuManager1.0.csproj.CopyComplete
+C:\Users\mycjb\source\repos\Komodo_Cafe\Cafe_UI\obj\Debug\Cafe_UI.exe
+C:\Users\mycjb\source\repos\Komodo_Cafe\Cafe_UI\obj\Debug\Cafe_UI.pdb
