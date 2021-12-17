@@ -14,7 +14,7 @@ namespace Cafe_UI
             None = 4
         }
         
-       enum 
+        
 
     
 }

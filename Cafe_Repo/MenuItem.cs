@@ -11,7 +11,7 @@ namespace MenuManager
         private Dictionary<int, MenuItem> _listOfMenuItems = new Dictionary<int, MenuItem>();
 
 
-        public bool AddNewMeal(MenuItem menuItem)
+        public bool AddNewItem(MenuItem menuItem)
         {
             bool bReturn = false; 
 
@@ -22,13 +22,13 @@ namespace MenuManager
             }
             return bReturn;
         }
-        public bool RemoveMenuItem(MenuItem menuItem)
+        public bool RemoveMenuItem(int mealNumber)
         {
-            bool bReturn = true;
+            bool bReturn = false;
 
-            if (_listOfMenuItems.ContainsKey(menuItem.MealNumber))
+            if (_listOfMenuItems.ContainsKey(mealNumber))
             {
-               _listOfMenuItems.Remove(menuItem.MealNumber);
+               _listOfMenuItems.Remove(mealNumber);
                 bReturn = false;
             }            
             return bReturn;
@@ -38,7 +38,7 @@ namespace MenuManager
             foreach (KeyValuePair<int, MenuItem> kvp in _listOfMenuItems)
             {
                 MenuItem d = (MenuItem)kvp.Value;
-                Console.WriteLine("{1}, {2}", d.MealNumber, d.MealName, d.Description, d.Ingredients, d.Price);
+                Console.WriteLine("{0}", d.MealNumber, d.MealName, d.Description, d.Ingredients,"{1}", d.Price);
             }
 
         }

@@ -12,9 +12,9 @@ namespace MenuManager
         public string MealName { get; set; }
         public string Description { get; set; }
         public string Ingredients { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
-    public MenuItem (int mealNumber, string mealName, string description, string ingredients, decimal price)
+    public MenuItem (int mealNumber, string mealName, string description, string ingredients, double price)
         {
             MealNumber = mealNumber;
             MealName = mealName;
