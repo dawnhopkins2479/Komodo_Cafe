@@ -11,18 +11,20 @@ namespace Cafe_UI
     {
         static MenuActions _currentAction = MenuActions.None;
         static Menu _currentMenu = new Menu();
-
+         
         static void Main(string[] args)
         {
-            _currentMenu.AddNewItem(new MenuItem(1, "Quarter Pounder", "a burger", "fried drink burger", 8.50));
-            _currentMenu.AddNewItem(new MenuItem(2, "Chicken Tenders", "a burger", "fried drink burger", 8.50));
-            _currentMenu.AddNewItem(new MenuItem(3, "Salad", "a burger", "fried drink burger", 8.50));
-            _currentMenu.AddNewItem(new MenuItem(4, "Pulled Pork", "a burger", "fried drink burger", 8.50));
-            _currentMenu.AddNewItem(new MenuItem(5, "Cheesecake", "a burger", "fried drink burger", 8.50));
-            
+            //_currentMenu.AddNewItem(new MenuItem(1, "Cheesburger", "Cheese on a bun", "cheese burger and bread", 8.50));
+            //_currentMenu.AddNewItem(new MenuItem(2, "Cheesburger", "Cheese on a bun", "cheese burger and bread", 8.50));
+            //_currentMenu.AddNewItem(new MenuItem(3, "Cheesburger", "Cheese on a bun", "cheese burger and bread", 8.50));
+            //_currentMenu.AddNewItem(new MenuItem(4, "Cheesburger", "Cheese on a bun", "cheese burger and bread", 8.50));
+            //_currentMenu.ListCurrentMenuItems();
 
-            RenderMainMenu();
+            //Console.ReadKey();
+            //_currentMenu.RemoveMenuItem(3);
+            //_currentMenu.ListCurrentMenuItems();
             
+            RenderMainMenu();
             ConsoleKeyInfo keypressed;
             char cKeyPressed;
             bool bRun = true;
@@ -37,6 +39,18 @@ namespace Cafe_UI
                 
                 
             }          
+        }
+        public static MenuItem ParseListCurrentMenuFromInput(string input)
+        {
+            string aInput = input;
+
+            if (aInput.Length == 5)
+            {
+                return ParseListCurrentMenuFromInput(aInput);
+            }
+
+            return null;
+
         }
         private static MenuItem ParseAddMenuItemFromInput(string input)
         {
@@ -73,20 +87,28 @@ namespace Cafe_UI
         {
             switch ((MenuActions) iKeyPressed)
             {
-                case MenuActions.ViewCurrentMenu:
+                case MenuActions.ListCurrentMenu:
                     RenderMainMenu();
-                    Console.WriteLine("********************************");
-                    //Console.WriteLine("1. Quarter Pounder\n A delicious burger with cheese between two buns\n fries\n large drink\n made with ground beef\n cheese\n lettuce\n tomatoes\n potatoes\n and salt\n $8.50");
-                    _currentMenu.ListCurrentMenu();
+                    Console.WriteLine("********************************");            
+                    Console.WriteLine("List of current Menu");
+                    Console.WriteLine("**************************************************");
+                    Console.WriteLine("Current Menu");
                     Console.WriteLine();
-                    Console.WriteLine("********************************");
-
-                    break;
+                    Console.WriteLine("1, Quarter Pounder, a burger, fries drink burger, $9.00");
+                    Console.WriteLine("2, Chicken Tenders, Chicken fries large drink, potatoes chicken spices breading salt, $8.50");
+                    Console.WriteLine("3, Salad, lettuce tomatoes egg cheese croutons your choice of dressing large ice tea, lettuce tomatoes bread egg cheese, $3.50");
+                    Console.WriteLine("4, Cheesecake, cheesecake with your choice of topping, cream cheese sugar milk butter vanilla, $6.95");
+                    Console.WriteLine();
+                    Console.WriteLine("**************************************************");
+                    Console.WriteLine();
+                    String sInput = Console.ReadLine();
+                    MenuItem menuItem = ParseListCurrentMenuFromInput(sInput);                    
+                    break;                                       
 
                 case MenuActions.AddMenuItem:
                     RenderMainMenu();
                     Console.WriteLine("To add a new item to the menu, enter the Meal number, Name of Meal, description, ingredients, price and then hit enter");
-                    String sInput = Console.ReadLine();
+                    sInput = Console.ReadLine();
                     MenuItem newMenuItem = ParseAddMenuItemFromInput(sInput);
 
                     if (_currentMenu.AddNewItem(newMenuItem))
@@ -98,26 +120,26 @@ namespace Cafe_UI
                     {
                         RenderMainMenu();
                         Console.WriteLine("Invalid items entered. Please try again.");
-                    }
-                    RenderMainMenu();
+                    }                    
                     break;
 
                 case MenuActions.RemoveMenuItem:
                     RenderMainMenu();
                     Console.WriteLine("To remove an item from your current menu, type in the meal number and then press enter");
                     sInput = Console.ReadLine();
-                    
+                    RenderMainMenu();
+
                     if (_currentMenu.RemoveMenuItem(Convert.ToInt32(sInput)))
                     {
-                        RenderMainMenu();
+                        
                         Console.WriteLine("Your item was succesfully removed. ");
                     }
                     else
                     {
-                        RenderMainMenu();
+                        
                         Console.WriteLine("Number entered does not exist. Please try another number.");
                     }
-                    RenderMainMenu();
+                    //RenderMainMenu();
                     break;
             }
         }       
@@ -133,28 +155,32 @@ namespace Cafe_UI
             Console.WriteLine("2. Add Menu Items");
             Console.WriteLine("3. Remove Menu Items");
             Console.WriteLine("0. Exit");
-            Console.WriteLine("**************************************************");
-            _currentAction = MenuActions.ViewCurrentMenu;
-        }
-        public static void RenderCurrentMenu()
-        {
-            Console.WriteLine("**************************************************");
-            Console.WriteLine("Current Menu");
-            Console.WriteLine();
-            Console.WriteLine("Meal #1 - ");
-            _currentAction = MenuActions.ViewCurrentMenu;
-        }
-        public static void RenderAddMenuItem()
-        {
-            Console.WriteLine("**************************************************");
-            Console.WriteLine();
-            _currentAction = MenuActions.AddMenuItem;
-        }
-        public static void RenderRemoveMenuItem()
-        {
-            Console.WriteLine("**************************************************");
-            Console.WriteLine("Please enter the meal # you would like to remove.");
-            _currentAction = MenuActions.RemoveMenuItem;
-        }
+            Console.WriteLine("**************************************************");           
+        }        
+        //public static void RenderCurrentMenu()
+        //{
+        //    //Console.WriteLine("**************************************************");
+        //    //Console.WriteLine("Current Menu");
+        //    //Console.WriteLine();
+        //    //Console.WriteLine("1, Quarter Pounder, a burger, fries drink burger, $9.00");
+        //    //Console.WriteLine("2, Chicken Tenders, Chicken fries large drink, potatoes chicken spices breading salt, $8.50");
+        //    //Console.WriteLine("3, Salad, lettuce tomatoes egg cheese croutons your choice of dressing large ice tea, lettuce tomatoes bread egg cheese, $3.50");
+        //    //Console.WriteLine("4, Cheesecake, cheesecake with your choice of topping, cream cheese sugar milk butter vanilla, $6.95");
+        //    //Console.WriteLine();
+        //    //Console.WriteLine("**************************************************");
+        //    _currentAction = MenuActions.ListCurrentMenu;
+        //}
+        //public static void RenderAddMenuItem()
+        //{
+        //    Console.Clear();
+        //    Console.WriteLine("**************************************************");
+        //    Console.WriteLine();
+        //    _currentAction = MenuActions.AddMenuItem;
+        //}
+        //public static void RenderRemoveMenuItem()
+        //{
+        //    Console.WriteLine("**************************************************");            
+        //    _currentAction = MenuActions.RemoveMenuItem;
+        //}
     }
 }

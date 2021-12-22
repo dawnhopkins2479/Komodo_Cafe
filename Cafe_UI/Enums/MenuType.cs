@@ -8,7 +8,7 @@ namespace Cafe_UI
 {    
         enum MenuActions
         {
-            ViewCurrentMenu=1,
+            ListCurrentMenu=1,
             AddMenuItem=2,
             RemoveMenuItem=3,
             None = 4

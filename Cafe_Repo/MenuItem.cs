@@ -11,10 +11,14 @@ namespace MenuManager
         private Dictionary<int, MenuItem> _listOfMenuItems = new Dictionary<int, MenuItem>();
 
 
+        /* Method: AddNewItem
+        Author: Dawn
+         Date: 
+        */
         public bool AddNewItem(MenuItem menuItem)
         {
             bool bReturn = false; 
-
+            
             if (!_listOfMenuItems.ContainsKey(menuItem.MealNumber))
             {
                 _listOfMenuItems.Add(menuItem.MealNumber, menuItem);
@@ -29,16 +33,16 @@ namespace MenuManager
             if (_listOfMenuItems.ContainsKey(mealNumber))
             {
                _listOfMenuItems.Remove(mealNumber);
-                bReturn = false;
+                bReturn = true;
             }            
             return bReturn;
         }
-        public void ListCurrentMenu()
+        public void ListCurrentMenuItems()
         {
             foreach (KeyValuePair<int, MenuItem> kvp in _listOfMenuItems)
             {
                 MenuItem d = (MenuItem)kvp.Value;
-                Console.WriteLine("{0}", d.MealNumber, d.MealName, d.Description, d.Ingredients,"{1}", d.Price);
+                Console.WriteLine("Meal Number = "  + d.MealNumber +  "  Meal name = " + d.MealName + "  Description = " +d.Description + "  ingredients = " + d.Ingredients + "  price = " + d.Price);
             }
 
         }

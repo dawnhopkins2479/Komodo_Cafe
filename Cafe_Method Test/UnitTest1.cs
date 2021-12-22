@@ -9,6 +9,7 @@ namespace Cafe_Method_Test
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }
